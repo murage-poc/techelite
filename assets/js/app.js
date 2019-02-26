@@ -14,7 +14,7 @@ var App = /** @class */ (function () {
                     ' assistance it also helps in statistical records .',
                 title: 'U-HAKI APP'
             }, {
-                img: 'https://mockuphone.com/preview/ac812ff61b90985de1ec601d54747b25',
+                img: 'assets/images/dating-app.png',
                 description: 'No description',
                 title: 'DATING APP'
             },
