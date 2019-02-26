@@ -89,6 +89,10 @@
     margin: 0 105px 0 auto;
   }
 }
+.section#contact {
+  margin-top: -20px;
+}
+
 .m-0 {
   margin: 0 !important;
 }
