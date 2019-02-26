@@ -6,18 +6,18 @@ var App = /** @class */ (function () {
                 img: 'assets/images/kilimo-app.png',
                 description: 'Kilimo Digital app is an interactive agricultural app that enables farmers to' +
                     ' exercise effective, profitable, and manageable farming.',
-                title: 'KILIMO DIGITAL APP'
+                title: 'KILIMO DIGITAL '
             },
             {
                 img: 'assets/images/uhaki-app.png',
                 description: 'U-Haki app  enables victim  report  cases of both GBV and FGM an get instant assistance' +
                     ' assistance it also helps in statistical records .',
-                title: 'U-HAKI APP'
+                title: 'U-HAKI '
             }, {
-                img: 'assets/images/dating-app.png',
+                img: 'assets/images/daze-app.png',
                 description: 'No description',
-                title: 'DATING APP'
-            },
+                title: 'DAZE '
+            }
         ];
         this.team = [
             { name: 'Lindah Tulah',
@@ -28,7 +28,7 @@ var App = /** @class */ (function () {
                     '  creation of sustainable life long solutions.Am a self driven individual committed to giving out my best in all I do',
                 profilePic: 'assets/images/lindah.jpg',
                 title: 'UX/UI designer' },
-            { name: 'CAROL Muchoki',
+            { name: 'Carol Muchoki',
                 description: 'I am an innovative mobile developer aspiring to leverage technology to create sustainable life long solutions \n' +
                     'to the current problems in the world. I am the co-founder of Kilimo Digital mobile and web application (yet to published),\n' +
                     ' an educational farming app that focuses on helping farmers obtain efficient, manageable, and profitable farming. \n' +
@@ -60,7 +60,7 @@ var App = /** @class */ (function () {
         // @ts-ignore
         M.Sidenav.init(sidenavElem);
         var contactFormSubmitBtn = document.querySelector('#submitContact');
-        contactFormSubmitBtn.addEventListener('click', function (evt) {
+        contactFormSubmitBtn.addEventListener('click', function () {
             _this.validateForm('contact-form', null, function () {
                 M.toast({ html: 'Sorry! you missed some bits' });
             }, function () {
@@ -110,10 +110,19 @@ var App = /** @class */ (function () {
     };
     App.prototype.renderProjects = function () {
         var template = '';
+        var ind = 0;
         this.projects.forEach(function (project) {
+            if (ind == 0) {
+                template += '<div class="row container">';
+            }
             template += "  <div class=\"col s12 m4\">\n        <div class=\"card\">\n            <div class=\"card-image waves-effect waves-block waves-light\">\n                <img class=\"activator\"\n                     src=\"" + project.img + "\" alt=\"" + project.img.replaceAll(' ', '_') + "\">\n            </div>\n            <div class=\"card-content\">\n                <span class=\"card-title activator grey-text text-darken-4 center\">" + project.title + "<i class=\"material-icons right\">more_vert</i></span>\n            </div>\n            <div class=\"card-reveal\">\n                <span class=\"card-title grey-text text-darken-4\">" + project.title + " <i class=\"material-icons right\">close</i></span>\n                <p>" + project.description + " </p>\n            </div>\n        </div>\n        </div>";
+            if (ind == 3) {
+                template += '</div>';
+                ind = 0;
+            }
+            ind++;
         });
-        document.getElementById('projects-placeholder').innerHTML = template;
+        document.getElementById('projects-placeholder').outerHTML = template;
     };
     App.prototype.renderProfiles = function () {
         var template = '';

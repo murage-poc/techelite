@@ -10,18 +10,18 @@ class App {
                 img: 'assets/images/kilimo-app.png',
                 description: 'Kilimo Digital app is an interactive agricultural app that enables farmers to'+
                     ' exercise effective, profitable, and manageable farming.',
-                title: 'KILIMO DIGITAL APP'
+                title: 'KILIMO DIGITAL '
             },
             {
                 img: 'assets/images/uhaki-app.png',
                 description: 'U-Haki app  enables victim  report  cases of both GBV and FGM an get instant assistance'+
                     ' assistance it also helps in statistical records .',
-                title: 'U-HAKI APP'
+                title: 'U-HAKI '
             }, {
-                img: 'assets/images/dating-app.png',
+                img: 'assets/images/daze-app.png',
                 description: 'No description',
-                title: 'DATING APP'
-            },
+                title: 'DAZE '
+            }
 
 
         ];
@@ -34,7 +34,7 @@ class App {
                 '  creation of sustainable life long solutions.Am a self driven individual committed to giving out my best in all I do',
             profilePic:'assets/images/lindah.jpg',
              title:'UX/UI designer'},
-            {name:'CAROL Muchoki',
+            {name:'Carol Muchoki',
                 description:'I am an innovative mobile developer aspiring to leverage technology to create sustainable life long solutions \n' +
                     'to the current problems in the world. I am the co-founder of Kilimo Digital mobile and web application (yet to published),\n' +
                     ' an educational farming app that focuses on helping farmers obtain efficient, manageable, and profitable farming. \n' +
@@ -72,7 +72,7 @@ class App {
 
         let contactFormSubmitBtn = document.querySelector('#submitContact');
 
-        contactFormSubmitBtn.addEventListener('click', (evt) => {
+        contactFormSubmitBtn.addEventListener('click', () => {
             this.validateForm('contact-form', null, () => {
                 M.toast({html: 'Sorry! you missed some bits'});
             }, () => {
@@ -133,7 +133,11 @@ class App {
 
     private renderProjects() {
         let template = '';
+        let ind=0;
         this.projects.forEach((project) => {
+            if(ind==0){
+                template+='<div class="row container">'
+            }
             template += `  <div class="col s12 m4">
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
@@ -149,8 +153,14 @@ class App {
             </div>
         </div>
         </div>`;
+
+            if(ind==3){
+                template+='</div>';
+                ind=0;
+            }
+            ind++;
         });
-        document.getElementById('projects-placeholder').innerHTML = template;
+        document.getElementById('projects-placeholder').outerHTML = template;
     }
 
     private renderProfiles(){
