@@ -50,7 +50,7 @@
 }
 .team-member-avatar-container img {
   border-radius: 100%;
-  max-width: 150px;
+  max-width: 200px;
 }
 
 .team-member-name {
@@ -84,12 +84,11 @@
   color: #29b6f6;
 }
 
-@media only screen and (min-width: 0){
-  .project-container .featured-icon{
+@media only screen and (min-width: 0) {
+  .project-container .featured-icon {
     margin: 0 105px 0 auto;
-  }  
+  }
 }
-
 .m-0 {
   margin: 0 !important;
 }

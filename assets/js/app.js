@@ -1,20 +1,49 @@
 var App = /** @class */ (function () {
     function App() {
+        this.team = [];
         this.projects = [
             {
-                img: 'https://assets.awwwards.com/awards/images/12844705581284373206forms_0000s_0010_Bitmap.jpg',
-                description: 'Project MiFI is the future',
-                title: 'PROJECT MIFI'
+                img: 'assets/images/kilimo-app.png',
+                description: 'Kilimo Digital app is an interactive agricultural app that enables farmers to' +
+                    ' exercise effective, profitable, and manageable farming.',
+                title: 'KILIMO DIGITAL APP'
             },
             {
-                img: 'https://assets.awwwards.com/awards/images/12844705701284373229forms_0000s_0012_Bitmap.jpg',
-                description: 'Project TEST is the future',
-                title: 'PROJECT MIFI'
+                img: 'assets/images/uhaki-app.png',
+                description: 'U-Haki app  enables victim  report  cases of both GBV and FGM an get instant assistance' +
+                    ' assistance it also helps in statistical records .',
+                title: 'U-HAKI APP'
             }, {
-                img: 'https://assets.awwwards.com/awards/images/12844705701284373229forms_0000s_0012_Bitmap.jpg',
-                description: 'Project TEST is the future',
-                title: 'PROJECT MIFI'
+                img: 'https://mockuphone.com/preview/ac812ff61b90985de1ec601d54747b25',
+                description: 'No description',
+                title: 'DATING APP'
             },
+        ];
+        this.team = [
+            { name: 'Lindah Tulah',
+                description: 'My long term career plan is to solve  societal  problems especially  in women \n' +
+                    'empowerment through  use of knowledge gained in information technology.I am the co_founder \n' +
+                    'of U_Haki App(yet published) using web,mobile,ussd and sms technology.Main purpose is to fight against\n' +
+                    ' Gender based violence. Main interest is in innovation  and\n' +
+                    '  creation of sustainable life long solutions.Am a self driven individual committed to giving out my best in all I do',
+                profilePic: 'assets/images/lindah.jpg',
+                title: 'UX/UI designer' },
+            { name: 'CAROL Muchoki',
+                description: 'I am an innovative mobile developer aspiring to leverage technology to create sustainable life long solutions \n' +
+                    'to the current problems in the world. I am the co-founder of Kilimo Digital mobile and web application (yet to published),\n' +
+                    ' an educational farming app that focuses on helping farmers obtain efficient, manageable, and profitable farming. \n' +
+                    'I am driven by the zeal to learn new skills every day, utilize every opportunity I get and make the best out of everything. ',
+                profilePic: 'assets/images/carol.jpg',
+                title: 'Front end developer' },
+            { name: ' Yonathaniel K',
+                description: 'I am an extrovert software developer who has been freelancing for 2 years. I like to \n' +
+                    'draw, play games, sleep, screw up people\'s life and build something awesome like application software. Moreover I \n' +
+                    'am at very ease when working in a collaboration as team, and ready to be self learner.I love working with my \n' +
+                    'passion about design and programming and been wanting to jump into it wherever there is an opportunity. Currently \n' +
+                    'i’m focusing on learning user experience and design, semantic & component as UX/UI designer as well as working to \n' +
+                    'complete Daze and Blood Donor android applications and many more.',
+                profilePic: 'assets/images/yonah.jpg',
+                title: 'Android developer' },
         ];
     }
     App.prototype.init = function () {
@@ -77,13 +106,31 @@ var App = /** @class */ (function () {
         App.iconsRenderer(fbIcon, fbIconPlaceholderElems);
         App.iconsRenderer(twitterIcon, twitterIconPlaceholderElems);
         this.renderProjects();
+        this.renderProfiles();
     };
     App.prototype.renderProjects = function () {
         var template = '';
         this.projects.forEach(function (project) {
-            template += "  <div class=\"col s12 m4\">\n        <div class=\"card\">\n            <div class=\"card-image waves-effect waves-block waves-light\">\n                <img class=\"activator\"\n                     src=\"" + project.img + "\" alt=\"" + project.img.replaceAll(' ', '_') + "\">\n            </div>\n            <div class=\"card-content\">\n                <span class=\"card-title activator grey-text text-darken-4\">" + project.title + "<i class=\"material-icons right\">more_vert</i></span>\n            </div>\n            <div class=\"card-reveal\">\n                <span class=\"card-title grey-text text-darken-4\">" + project.title + " <i class=\"material-icons right\">close</i></span>\n                <p>" + project.description + " </p>\n            </div>\n        </div>\n        </div>";
+            template += "  <div class=\"col s12 m4\">\n        <div class=\"card\">\n            <div class=\"card-image waves-effect waves-block waves-light\">\n                <img class=\"activator\"\n                     src=\"" + project.img + "\" alt=\"" + project.img.replaceAll(' ', '_') + "\">\n            </div>\n            <div class=\"card-content\">\n                <span class=\"card-title activator grey-text text-darken-4 center\">" + project.title + "<i class=\"material-icons right\">more_vert</i></span>\n            </div>\n            <div class=\"card-reveal\">\n                <span class=\"card-title grey-text text-darken-4\">" + project.title + " <i class=\"material-icons right\">close</i></span>\n                <p>" + project.description + " </p>\n            </div>\n        </div>\n        </div>";
         });
         document.getElementById('projects-placeholder').innerHTML = template;
+    };
+    App.prototype.renderProfiles = function () {
+        var template = '';
+        this.team.forEach(function (obj) {
+            template += "   <div class=\"col s-12 m4 hoverable \">\n                <div class=\"team-member-avatar-container center\">\n                    <img src=\"" + obj.profilePic + "\" alt=\"" + obj.title.replaceAll(' ', '_') + "\">\n                </div>\n                <div class=\"team-member-name center mt-3 pb-1 col s12\">" + obj.name + "</div>\n                <div class=\"team-member-title center col s12\">" + obj.title + "</div>\n                <div class=\"team-member-description center col s12\">\n                " + obj.description + "\n                </div>\n                <div class=\"team-member-contact row  \">\n                    <ul class=\"col sm-12 mt-2 push-m2 push-s2 \">";
+            if (obj.github) {
+                template += "\n                        <li>\n                            <a href=\"" + obj.github + "\" >\n                            <i class=\"github-icon\">\n                            </i>\n                            </a>\n                        </li>";
+            }
+            if (obj.twitter) {
+                template += " <li>\n                            <a href=\"" + obj.twitter + "\" >\n                                <i class=\"twitter-icon\"></i>\n                            </a>\n                        </li>";
+            }
+            if (obj.fb) {
+                template += " <li>\n                            <a href=\"" + obj.fb + "\"  >\n                                <i class=\"fb-icon\"></i>\n                            </a>\n                        </li>";
+            }
+            template += "</ul></div></div>";
+        });
+        document.getElementById('team-placeholder').outerHTML = template;
     };
     App.iconsRenderer = function (icon, elems) {
         elems.forEach(function (elem) {
