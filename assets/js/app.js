@@ -17,6 +17,16 @@ var App = /** @class */ (function () {
                 img: 'assets/images/daze-app.png',
                 description: 'No description',
                 title: 'DAZE '
+            }, {
+                img: 'assets/images/blood-app.png',
+                description: 'No description',
+                title: 'Blood Donor '
+            },
+            {
+                img: 'assets/images/mimi.png',
+                description: 'MDP is a progressive web church-portal that facilitates church management to manage their members,' +
+                    ' their committees and groups, and more importantly their finances',
+                title: 'MDP '
             }
         ];
         this.team = [
@@ -44,6 +54,12 @@ var App = /** @class */ (function () {
                     'complete Daze and Blood Donor android applications and many more.',
                 profilePic: 'assets/images/yonah.jpg',
                 title: 'Android developer' },
+            { name: ' Murage M',
+                description: 'I am a conscientious backend developer with in depth experience in object oriented programming design.' +
+                    'Building great tech solutions to solve day to day problems in my community is my passion through striving on ' +
+                    ' simplicity over complexity and knowledge sharing',
+                profilePic: 'assets/images/mm.png',
+                title: 'Backend developer' },
         ];
     }
     App.prototype.init = function () {
@@ -110,24 +126,15 @@ var App = /** @class */ (function () {
     };
     App.prototype.renderProjects = function () {
         var template = '';
-        var ind = 0;
         this.projects.forEach(function (project) {
-            if (ind == 0) {
-                template += '<div class="row container">';
-            }
-            template += "  <div class=\"col s12 m4\">\n        <div class=\"card\">\n            <div class=\"card-image waves-effect waves-block waves-light\">\n                <img class=\"activator\"\n                     src=\"" + project.img + "\" alt=\"" + project.img.replaceAll(' ', '_') + "\">\n            </div>\n            <div class=\"card-content\">\n                <span class=\"card-title activator grey-text text-darken-4 center\">" + project.title + "<i class=\"material-icons right\">more_vert</i></span>\n            </div>\n            <div class=\"card-reveal\">\n                <span class=\"card-title grey-text text-darken-4\">" + project.title + " <i class=\"material-icons right\">close</i></span>\n                <p>" + project.description + " </p>\n            </div>\n        </div>\n        </div>";
-            if (ind == 3) {
-                template += '</div>';
-                ind = 0;
-            }
-            ind++;
+            template += "  <div class=\"col m4 \">\n        <div class=\"card hoverable\">\n            <div class=\"card-image waves-effect waves-block waves-light project-pic\">\n                <img class=\"activator\"\n                   src=\"" + project.img + "\" alt=\"" + project.img.replaceAll(' ', '_') + "\"/>\n            </div>\n            <div class=\"card-content\">\n                <span class=\"card-title activator grey-text text-darken-4 center\">" + project.title + "\n                <i class=\"material-icons right\">more_vert</i>\n                </span>\n            </div>\n            <div class=\"card-reveal\">\n                <span class=\"card-title grey-text text-darken-4\">" + project.title + " <i class=\"material-icons right\">close</i></span>\n                <p>" + project.description + " </p>\n            </div>\n        </div>\n        </div>";
         });
         document.getElementById('projects-placeholder').outerHTML = template;
     };
     App.prototype.renderProfiles = function () {
         var template = '';
         this.team.forEach(function (obj) {
-            template += "   <div class=\"col s-12 m4 hoverable \">\n                <div class=\"team-member-avatar-container center\">\n                    <img src=\"" + obj.profilePic + "\" alt=\"" + obj.title.replaceAll(' ', '_') + "\">\n                </div>\n                <div class=\"team-member-name center mt-3 pb-1 col s12\">" + obj.name + "</div>\n                <div class=\"team-member-title center col s12\">" + obj.title + "</div>\n                <div class=\"team-member-description center col s12\">\n                " + obj.description + "\n                </div>\n                <div class=\"team-member-contact row  \">\n                    <ul class=\"col sm-12 mt-2 push-m2 push-s2 \">";
+            template += "   <div class=\"col s12 m4 hoverable \">\n                <div class=\"team-member-avatar-container center\">\n                    <img src=\"" + obj.profilePic + "\" alt=\"" + obj.title.replaceAll(' ', '_') + "\">\n                </div>\n                <div class=\"team-member-name center mt-3 pb-1 col s12\">" + obj.name + "</div>\n                <div class=\"team-member-title center col s12\">" + obj.title + "</div>\n                <div class=\"team-member-description center col s12\">\n                " + obj.description + "\n                </div>\n                <div class=\"team-member-contact row  \">\n                    <ul class=\"col sm-12 mt-2 push-m2 push-s2 \">";
             if (obj.github) {
                 template += "\n                        <li>\n                            <a href=\"" + obj.github + "\" >\n                            <i class=\"github-icon\">\n                            </i>\n                            </a>\n                        </li>";
             }

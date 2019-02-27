@@ -76,6 +76,15 @@
   padding: 8px;
 }
 
+.project-pic {
+  text-align: center;
+}
+.project-pic img {
+  width: auto !important;
+  height: 285px;
+  margin: 0;
+}
+
 .input-field .prefix {
   color: #29b6f6;
 }

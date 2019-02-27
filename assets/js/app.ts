@@ -21,6 +21,16 @@ class App {
                 img: 'assets/images/daze-app.png',
                 description: 'No description',
                 title: 'DAZE '
+            }, {
+                img: 'assets/images/blood-app.png',
+                description: 'No description',
+                title: 'Blood Donor '
+            },
+          {
+                img: 'assets/images/mimi.png',
+                description: 'MDP is a progressive web church-portal that facilitates church management to manage their members,' +
+                    ' their committees and groups, and more importantly their finances',
+                title: 'MDP '
             }
 
 
@@ -52,6 +62,13 @@ class App {
 
                 profilePic:'assets/images/yonah.jpg',
                 title:'Android developer'},
+            {name:' Murage M',
+                description:'I am a conscientious backend developer with in depth experience in object oriented programming design.' +
+                    'Building great tech solutions to solve day to day problems in my community is my passion through striving on ' +
+                    ' simplicity over complexity and knowledge sharing',
+
+                profilePic:'assets/images/mm.png',
+                title:'Backend developer'},
         ]
     }
 
@@ -133,19 +150,18 @@ class App {
 
     private renderProjects() {
         let template = '';
-        let ind=0;
         this.projects.forEach((project) => {
-            if(ind==0){
-                template+='<div class="row container">'
-            }
-            template += `  <div class="col s12 m4">
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
+
+            template += `  <div class="col m4 ">
+        <div class="card hoverable">
+            <div class="card-image waves-effect waves-block waves-light project-pic">
                 <img class="activator"
-                     src="${project.img}" alt="${project.img.replaceAll(' ', '_')}">
+                   src="${project.img}" alt="${project.img.replaceAll(' ', '_')}"/>
             </div>
             <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4 center">${project.title}<i class="material-icons right">more_vert</i></span>
+                <span class="card-title activator grey-text text-darken-4 center">${project.title}
+                <i class="material-icons right">more_vert</i>
+                </span>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">${project.title} <i class="material-icons right">close</i></span>
@@ -154,11 +170,7 @@ class App {
         </div>
         </div>`;
 
-            if(ind==3){
-                template+='</div>';
-                ind=0;
-            }
-            ind++;
+
         });
         document.getElementById('projects-placeholder').outerHTML = template;
     }
@@ -167,7 +179,7 @@ class App {
 
         let template='';
         this.team.forEach((obj)=>{
-            template+=`   <div class="col s-12 m4 hoverable ">
+            template+=`   <div class="col s12 m4 hoverable ">
                 <div class="team-member-avatar-container center">
                     <img src="${obj.profilePic}" alt="${obj.title.replaceAll(' ','_')}">
                 </div>
