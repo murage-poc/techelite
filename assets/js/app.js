@@ -60,7 +60,7 @@ var App = /** @class */ (function () {
                     ' humanity problems.i am the co-founder of Blessed donors,an app which efficient donation.' +
                     ' My everyday aim in life is to try use the knowledge i have to positively influence my ' +
                     'community and peers,one step at a time.',
-                profilePic: 'assets/images/norah.png',
+                profilePic: 'assets/images/norah.jpg',
                 title: 'Full-stack developer'
             },
             {
@@ -68,7 +68,7 @@ var App = /** @class */ (function () {
                 description: 'I am a conscientious backend developer with in depth experience in object oriented programming design.' +
                     'Building great tech solutions to solve day to day problems in my community is my passion through striving on ' +
                     ' simplicity over complexity and knowledge sharing',
-                profilePic: 'assets/images/mm.jpg',
+                profilePic: 'assets/images/mm.png',
                 title: 'Backend developer'
             },
         ];
