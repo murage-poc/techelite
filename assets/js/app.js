@@ -68,7 +68,7 @@ var App = /** @class */ (function () {
                 description: 'I am a conscientious backend developer with in depth experience in object oriented programming design.' +
                     'Building great tech solutions to solve day to day problems in my community is my passion through striving on ' +
                     ' simplicity over complexity and knowledge sharing',
-                profilePic: 'assets/images/mm.png',
+                profilePic: 'https://avatars2.githubusercontent.com/u/25152892?',
                 title: 'Backend developer'
             },
         ];
