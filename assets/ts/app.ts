@@ -318,19 +318,6 @@ class App {
     }
 
     private submitFormData() {
-        let firebaseConfig = {
-            apiKey: "AIzaSyDussDDMOfv4w5mNEubKlodtuEIVweK7UM",
-            authDomain: "team-elite-dcdc8.firebaseapp.com",
-            databaseURL: "https://team-elite-dcdc8.firebaseio.com",
-            projectId: "team-elite-dcdc8",
-            messagingSenderId: "1058811111433"
-        };
-        firebase.initializeApp(firebaseConfig);
-        return firebase.database().ref('messages').push({
-            message: document.getElementById('message').value,
-            sender: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-        });
     }
 }
 
